@@ -17,3 +17,17 @@ If you don't need to have a large number of concurren users (>400), you can use 
 * Check if you have all workers running
 * Input Number of users
 * Input Spawn rate (<100)
+
+## Send Messages to Azure Event Hub
+### Generate SAS for Azure Event Hub
+* Run `source ./eh_sas.sh; get_sas_token <EVENT_HUBS_SPACE>.servicebus.windows.net <EVENT_HUBS_KEY_NAME> <EVENT_HUBS_KEY>
+`
+* Copy the result by removing '%'
+* Replace the value of `SAS` with the copied string
+* Replace the values of `SERVICE_BUS_NAME_SPACE, EVENT_HUB_PATH` with the real values of the target Azure Event Hubs.
+### Run Locust
+`locust -f locustfile_eh.py`
+### Use Notebook to Capture the Messages
+* Create an Azure Databricks cluster
+* Input the Azure Event Hubs connection string (the one with event hub path)
+* Run the ingest_data_eventhub notebook
