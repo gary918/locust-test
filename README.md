@@ -19,8 +19,9 @@ If you don't need to have a large number of concurren users (>400), you can use 
 * Input Spawn rate (<100)
 
 ## Send Messages to Azure Event Hub
+![event hubs info](./images/event_hubs_info.png)
 ### Generate SAS for Azure Event Hub
-* Run `source ./eh_sas.sh; get_sas_token <EVENT_HUBS_SPACE>.servicebus.windows.net <EVENT_HUBS_KEY_NAME> <EVENT_HUBS_KEY>
+* Run `source ./eh_sas.sh; get_sas_token <EVENT_HUBS_NAMESPACE>.servicebus.windows.net <EVENT_HUBS_KEY_NAME> <EVENT_HUBS_KEY>
 `
 * Copy the result by removing '%'
 * Replace the value of `SAS` with the copied string
